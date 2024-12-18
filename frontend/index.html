@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple K8s App</title>
+    <script>
+        async function getMessage() {
+            try {
+                const response = await fetch('/api/message');
+                const data = await response.json();
+                document.getElementById('message').textContent = data.message;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('message').textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Kubernetes Demo App</h1>
+    <button onclick="getMessage()">Get Message</button>
+    <p id="message"></p>
+</body>
+</html>
